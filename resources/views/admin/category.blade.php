@@ -60,7 +60,7 @@
 
                 <div>
                     <input type="text" name="category">
-                    <input class="btn btn-primary" type="submit" value="Add Category">
+                    <input class="btn btn-primary" type="submit" value="Add">
                 </div>
             </form>
           </div>
@@ -68,7 +68,9 @@
           <div>
               <table class="table_deg">
                   <tr>
-                      <th>Tên Sản Phẩm</th>
+                      <th>Category Name</th>
+
+                      <th></th>
 
                       <th></th>
                   </tr>
@@ -77,8 +79,13 @@
 
                   <tr>
                       <td>{{$data->category_name}}</td>
+
                       <td>
-                        <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_category',$data->id)}}">Xoá</a>
+                        <a class="btn btn-success" href="{{url('edit_category',$data->id)}}">Edit</a>
+                      </td>
+                      
+                      <td>
+                        <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_category',$data->id)}}">Delete</a>
                       </td>
                   </tr>
                   
@@ -98,8 +105,8 @@
         console.log(urlToRedirect);
 
         swal({
-          title:"Bạn chắc chắn muốn xoá sản phẩm chứ?",
-          text: "Sản phẩm sẽ bị xoá vĩnh viễn",
+          title:"Are you sure you want to delete the product?",
+          text: "The product will be permanently deleted.",
           icon: "warning",
           buttons: true,
           dangerMode: true,
