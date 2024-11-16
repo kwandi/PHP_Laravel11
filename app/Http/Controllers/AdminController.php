@@ -95,13 +95,28 @@ class AdminController extends Controller
             $data->image = $imagename;
         }
 
-
-
-
-
         $data->save();
 
         toastr()->addSuccess('Đã thêm sản phẩm '.$data->title." vào danh mục ".$data->category);
+
+        return redirect()->back();
+    }
+
+    public function view_product()
+    {
+        $product = Product::paginate(3);
+
+        return view('admin.view_product', compact('product'));
+    }
+
+    public function delete_product($id)
+    {
+
+        $data = Product::find($id);
+
+        $data->delete();
+
+        toastr()->addSuccess('Đã xoá sản phẩm '.$data->title);
 
         return redirect()->back();
     }
