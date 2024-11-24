@@ -10035,4 +10035,41 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+.product-card {
+  display: flex;
+  flex-direction: column; /* Đặt các phần tử con theo chiều dọc */
+  justify-content: space-between; /* Căn đều khoảng cách */
+  align-items: center; /* Căn giữa nội dung */
+  height: 300px; /* Đặt chiều cao cố định */
+  border: 1px solid #ddd; /* Đường viền cho từng ô */
+  padding: 10px; /* Khoảng cách bên trong */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+  border-radius: 8px; /* Bo tròn góc */
+  background-color: #fff; /* Màu nền */
+  margin-bottom: 20px; /* Khoảng cách giữa các ô */
+}
+
+.product-card .img-box {
+  max-height: 150px; /* Đặt chiều cao tối đa cho hình ảnh */
+  overflow: hidden; /* Ẩn phần hình ảnh vượt quá khung */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card .img-box img {
+  max-height: 100%; /* Đảm bảo hình ảnh không vượt khung */
+  max-width: 100%;
+  object-fit: cover; /* Đảm bảo hình ảnh giữ tỉ lệ */
+}
+
+.product-card .detail-box {
+  text-align: center; /* Căn giữa nội dung văn bản */
+}
+
+.product-card .detail-box h6 {
+  margin: 5px 0; /* Khoảng cách giữa các dòng */
+}
+
 /*# sourceMappingURL=bootstrap.css.map */
