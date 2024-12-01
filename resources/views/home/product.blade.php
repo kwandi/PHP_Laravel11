@@ -14,17 +14,25 @@
 
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box product-card">
-            <a href="">
+
               <div class="img-box">
                 <img src="products/{{$products->image}}" alt="">
               </div>
+              <div>
+              <h6 style="text-align: center; margin-top: 15px;">{!!Str::words($products->title,5)!!}</h6>
+              </div>
               <div class="detail-box">
-                <h6>{{$products->title}}</h6>
-                <h6>Price
+                <h6>
                   <span>${{$products->price}}</span>
                 </h6>
               </div>
-            </a>
+
+              <div style="padding: 5px;">
+                <a class="btn btn-link" href="{{url('product_details', $products->id)}}">Details</a>
+
+                <a class="btn btn-warning" href="{{url('add_cart',$products->id)}}">Add to Cart</a>
+              </div>
+
           </div>
         </div>
 
