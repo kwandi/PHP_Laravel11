@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $product = Product::all();
+        $product = Product::paginate(8);
 
         return view('home.index', compact('product'));
     }

@@ -39,6 +39,11 @@
       @endforeach
 
       </div>
+
+      <div>
+      {{$product->links()}}
+      </div>
+
       <div class="btn-box">
         <!-- <a href="">
           View All Products
