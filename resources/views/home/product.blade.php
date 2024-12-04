@@ -40,8 +40,10 @@
 
       </div>
 
-      <div>
       {{$product->links()}}
+      
+      <div>
+
       </div>
 
       <div class="btn-box">
