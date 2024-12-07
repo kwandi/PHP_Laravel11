@@ -12,6 +12,9 @@ use App\Models\User;
 
 use App\Models\Cart;
 
+use App\Models\Order;
+use Illuminate\Validation\Rules\Can;
+
 class HomeController extends Controller
 {
     public function index(){
@@ -106,5 +109,47 @@ class HomeController extends Controller
         }
 
         return view('home.mycart', compact('count','cart'));
+    }
+
+    public function confirm_order(Request $request)
+    {
+        $name = $request->name;
+
+        $address = $request->address;
+
+        $phone = $request->phone;
+
+
+        $user_id = Auth::user()->id;
+
+        $cart = Cart::where('user_id', $user_id)->get();
+
+        foreach ($cart as $carts) {
+            $order = new Order();
+
+            $order->name = $name;
+
+            $order->rec_address = $address;
+
+            $order->phone = $phone;
+
+            $order->user_id = $user_id;
+
+            $order->product_id = $carts->product_id;
+
+            $order->save();
+
+        }
+        $cart_remove = Cart::where('user_id', $user_id)->get();
+
+        foreach ($cart_remove as $remove) {
+            $data = Cart::find($remove->id);
+
+            $data->delete();
+        }
+
+        toastr()->addSuccess('Product ordered successfully');
+        
+        return redirect()->back();
     }
 }
