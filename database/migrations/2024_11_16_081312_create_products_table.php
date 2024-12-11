@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->longText('description')->nullable(); //Mô tả
             $table->string('image')->nullable();
-            $table->float('price')->nullable();
+            $table->double('price')->nullable();
             $table->string('category')->nullable();
             $table->string('quantity')->nullable();      //Số lượng
             $table->timestamps();
